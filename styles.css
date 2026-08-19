@@ -165,6 +165,38 @@ h2 em {
   margin: auto;
   padding: 130px 28px 110px;
   position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 520px;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  opacity: 0.85;
+  mix-blend-mode: luminosity;
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
 }
 
 .hero-glow-bg {
@@ -289,17 +321,20 @@ h2 em {
 
 .outcomes-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  margin-top: 28px;
+  
   background: var(--line);
   border: 1px solid var(--line);
 }
 
 .outcomes-grid > div {
-  padding: 25px;
+  padding: 20px 24px;
   background: var(--bg);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
+
+
 
 .outcomes-grid span {
   display: block;
@@ -312,7 +347,7 @@ h2 em {
 .outcomes-grid strong {
   display: block;
   margin: 25px 0 0;
-  font: 600 20px/1.25 "Space Grotesk";
+  font: 600 18px/1.25 "Space Grotesk";
 }
 
 .social-link {
@@ -320,9 +355,33 @@ h2 em {
 }
 
 .social-link a {
-  padding-bottom: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 4px;
   border-bottom: 1px solid #555b62;
-  font-size: 12px;
+  font-size: 13px;
+  color: #b7b9c0;
+  transition: all 0.25s ease;
+}
+
+.social-link a span {
+  display: inline-block;
+  color: var(--accent);
+  transition: transform 0.25s ease;
+}
+
+/* Hover State */
+.social-link a:hover {
+  color: #ffffff;
+  border-bottom-color: var(--accent);
+  /* Soft emerald shadow/glow */
+  text-shadow: 0 0 12px rgba(19, 159, 75, 0.4);
+}
+
+/* Arrow moves up and to the right */
+.social-link a:hover span {
+  transform: translate(3px, -3px);
 }
 
 
@@ -601,11 +660,6 @@ footer .brand {
    13. ARTICLE DETAIL PAGES
    ========================================================================== */
 
-/*
-   These styles are not used by index.html, but are retained for
-   the individual article pages linked from the Thinking section.
-*/
-
 .article {
   max-width: 820px;
   margin: auto;
@@ -619,10 +673,15 @@ footer .brand {
 }
 
 .deck {
-  max-width: 690px;
-  margin-bottom: 65px;
-  color: #b9bbc1;
-  font-size: 20px;
+  font-family: "Space Grotesk", sans-serif; /* Matches headline typography */
+  font-size: clamp(20px, 2.5vw, 24px);     /* Larger, responsive scaling */
+  line-height: 1.4;                         /* Tighter line-height for subheadings */
+  font-weight: 500;
+  color: #c8cbd2;                           /* Brighter than body copy, softer than h1 */
+  max-width: 680px;
+  margin: 0 0 48px;
+  border-left: 2px solid var(--accent);     /* Optional subtle vertical accent line */
+  padding-left: 18px;
 }
 
 .article h2 {
@@ -646,9 +705,40 @@ footer .brand {
   font-style: normal;
 }
 
+/* ==========================================================================
+   14. THANK YOU PAGE
+   ========================================================================== */
+
+.thank-you {
+  max-width: var(--max);
+  min-height: calc(100vh - 153px);
+  margin: auto;
+  padding: 140px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-top: 1px solid var(--line);
+}
+
+.thank-you h1 {
+  margin: 25px 0;
+}
+
+.thank-you h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.thank-you-copy {
+  max-width: 520px;
+  margin: 0 0 32px;
+  color: var(--muted);
+  font-size: 17px;
+}
 
 /* ==========================================================================
-   14. RESPONSIVE
+   15. RESPONSIVE
    ========================================================================== */
 
 @media (max-width: 800px) {
@@ -658,7 +748,12 @@ footer .brand {
   }
 
   .hero {
+    grid-template-columns: 1fr;
     padding-top: 90px;
+  }
+
+  .hero-image-wrap {
+    display: none;
   }
 
   .hero-glow-bg {
@@ -710,3 +805,4 @@ footer .brand {
     font-size: 52px;
   }
 }
+
