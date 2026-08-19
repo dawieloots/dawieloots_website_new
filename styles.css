@@ -37,11 +37,15 @@ main {
   overflow: hidden;
 }
 
+
 /* ==========================================================================
-   2. TYPOGRAPHY & SECTION HEADERS
+   2. TYPOGRAPHY
    ========================================================================== */
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: "Space Grotesk", sans-serif;
 }
 
@@ -53,10 +57,15 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(35px, 4.5vw, 58px);
+  font-size: clamp(32px, 4vw, 55px);
   line-height: 1.02;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.055em;
   margin: 0;
+}
+
+h2 em {
+  font-style: normal;
+  color: var(--accent);
 }
 
 .hero h1 em {
@@ -65,21 +74,17 @@ h2 {
   text-shadow: 0 0 35px rgba(19, 159, 75, 0.45);
 }
 
-h2 em {
-  font-style: normal;
-  color: var(--accent);
-}
-
 .eyebrow,
 .section-label {
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  font-weight: 700;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 12px;
   display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
+
 
 /* ==========================================================================
    3. NAVIGATION & BRANDING
@@ -100,40 +105,16 @@ h2 em {
 
 .brand {
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
   font: 700 21px "Space Grotesk";
   letter-spacing: -0.04em;
 }
 
-/* Homepage logo */
 .brand-logo {
   height: 32px;
   width: auto;
   display: block;
-}
-
-/* Article-page navigation */
-.article-nav .brand-logo {
-  height: 32px;
-  width: auto;
-  display: block;
-}
-
-.article-nav .back,
-.back {
-  font-size: 13px;
-  color: #b7b9c0;
-}
-
-.article-nav .back:hover,
-.back:hover {
-  color: var(--text);
-}
-
-.brand-mark {
-  color: var(--accent);
-  font-size: 27px;
 }
 
 .nav nav {
@@ -150,8 +131,8 @@ h2 em {
 .nav-cta,
 .button {
   display: inline-flex;
-  gap: 8px;
   align-items: center;
+  gap: 8px;
   padding: 11px 16px;
   border: 1px solid #393c44;
   border-radius: 2px;
@@ -174,33 +155,9 @@ h2 em {
   color: #b7b9c0;
 }
 
-.brand-concept {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 28px;
-  color: #686b73;
-  font-size: 11px;
-}
-
-.concept-mark {
-  font: 600 30px "Space Grotesk";
-  color: var(--accent);
-}
-
-.brand-concept strong {
-  display: block;
-  color: #bfc1c7;
-  font: 600 12px "Space Grotesk";
-}
-
-.brand-concept span {
-  display: block;
-  margin-top: 2px;
-}
 
 /* ==========================================================================
-   4. HERO SECTION
+   4. HERO
    ========================================================================== */
 
 .hero {
@@ -214,19 +171,18 @@ h2 em {
   position: absolute;
   top: 50%;
   right: -5%;
-  transform: translateY(-50%);
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, rgba(19, 159, 75, 0.15) 0%, rgba(11, 12, 15, 0) 70%);
+  transform: translateY(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(19, 159, 75, 0.15) 0%,
+    rgba(11, 12, 15, 0) 70%
+  );
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
   filter: blur(40px);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
 }
 
 .hero-copy {
@@ -237,17 +193,17 @@ h2 em {
 
 .hero-actions {
   display: flex;
-  gap: 24px;
   align-items: center;
+  gap: 24px;
   margin: 34px 0;
 }
 
 .hero-note {
-  font-size: 11px;
-  color: #686b73;
   display: flex;
   align-items: center;
   gap: 8px;
+  color: #686b73;
+  font-size: 11px;
 }
 
 .dot {
@@ -257,52 +213,25 @@ h2 em {
   border-radius: 50%;
 }
 
+
 /* ==========================================================================
-   5. GENERAL SECTION LAYOUTS
+   5. SHARED SECTION STRUCTURE
    ========================================================================== */
 
-.statement,
-.services,
-.how,
+.about,
+.questions,
 .audience,
-.services-list,
-.thinking,
-.about {
+.services,
+.thinking {
   max-width: var(--max);
   margin: auto;
   padding: 100px 28px;
   border-top: 1px solid var(--line);
 }
 
-.statement {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 50px;
-}
-
-.statement h2,
-.how h2,
-.audience h2,
-.services-intro h2,
-.thinking h2,
-.about h2 {
-  font-size: clamp(32px, 4vw, 55px);
-  line-height: 1.02;
-  letter-spacing: -0.055em;
-  margin: 0;
-}
-
-.statement h2 span {
-  color: #73767e;
-}
-
-.statement p {
-  color: var(--muted);
-  max-width: 650px;
-}
 
 /* ==========================================================================
-   6. ABOUT ME SECTION
+   6. ABOUT ME
    ========================================================================== */
 
 .about-grid {
@@ -313,12 +242,12 @@ h2 em {
 }
 
 .portrait-wrap {
-  background: #16181d;
   min-height: 420px;
-  border: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #16181d;
+  border: 1px solid var(--line);
   overflow: hidden;
 }
 
@@ -333,8 +262,8 @@ h2 em {
 }
 
 .about-copy p {
-  color: var(--muted);
   max-width: 670px;
+  color: var(--muted);
 }
 
 .about-copy em {
@@ -345,8 +274,8 @@ h2 em {
 .about-positioning {
   margin: 30px 0;
   padding: 22px;
-  border-left: 2px solid var(--accent);
   background: var(--panel);
+  border-left: 2px solid var(--accent);
 }
 
 .about-positioning strong {
@@ -362,31 +291,28 @@ h2 em {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: var(--line);
   margin-top: 28px;
+  background: var(--line);
+  border: 1px solid var(--line);
 }
 
 .outcomes-grid > div {
-  background: var(--bg);
   padding: 25px;
+  background: var(--bg);
 }
 
 .outcomes-grid span {
   display: block;
+  min-height: 18px;
   color: var(--accent);
-  font-size: 10px;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .outcomes-grid strong {
   display: block;
-  font: 600 20px "Space Grotesk";
-  margin: 25px 0 7px;
-}
-
-.outcomes-grid p {
-  font-size: 12px;
-  color: var(--muted);
-  margin: 0;
+  margin: 25px 0 0;
+  font: 600 20px/1.25 "Space Grotesk";
 }
 
 .social-link {
@@ -394,63 +320,57 @@ h2 em {
 }
 
 .social-link a {
-  font-size: 12px;
-  border-bottom: 1px solid #555b62;
   padding-bottom: 5px;
+  border-bottom: 1px solid #555b62;
+  font-size: 12px;
 }
+
 
 /* ==========================================================================
-   7. BLIND SPOTS SECTION
+   7. THE QUESTIONS
    ========================================================================== */
 
-.blind-spots {
-  max-width: var(--max);
-  margin: auto;
-  padding: 100px 28px;
-  border-top: 1px solid var(--line);
-}
-
-.blind-head {
+.questions-head {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 80px;
   align-items: end;
-  margin-top: 30px;
 }
 
-.blind-head p {
-  color: var(--muted);
+.questions-head p {
   max-width: 430px;
+  color: var(--muted);
 }
 
-.blind-grid {
+.questions-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: var(--line);
   margin-top: 55px;
+  background: var(--line);
 }
 
-.blind-grid div {
-  background: var(--bg);
-  padding: 28px;
+.questions-grid div {
   min-height: 170px;
+  padding: 28px;
+  background: var(--bg);
 }
 
-.blind-grid strong {
+.questions-grid strong {
   display: block;
-  font: 600 19px "Space Grotesk";
   margin-bottom: 12px;
+  font: 600 19px "Space Grotesk";
 }
 
-.blind-grid span {
+.questions-grid span {
   display: block;
   color: var(--muted);
   font-size: 13px;
 }
 
+
 /* ==========================================================================
-   8. AUDIENCE SECTION
+   8. AUDIENCE
    ========================================================================== */
 
 .audience {
@@ -460,25 +380,13 @@ h2 em {
 }
 
 .audience-copy p {
-  color: var(--muted);
   margin-top: 0;
+  color: var(--muted);
 }
 
-.pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.pills span {
-  border: 1px solid var(--line);
-  padding: 8px 11px;
-  font-size: 10px;
-  color: #aaaeb6;
-}
 
 /* ==========================================================================
-   9. SERVICES & HOW IT WORKS
+   9. SERVICES
    ========================================================================== */
 
 .services-intro {
@@ -486,15 +394,15 @@ h2 em {
   grid-template-columns: 1.2fr 1fr;
   gap: 80px;
   align-items: end;
-  margin: 30px 0 55px;
+  margin: 0 0 55px;
 }
 
 .services-intro p {
-  color: var(--muted);
   max-width: 430px;
+  color: var(--muted);
 }
 
-.service-list-grid {
+.services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid var(--line);
@@ -508,7 +416,7 @@ h2 em {
   border-bottom: 1px solid var(--line);
 }
 
-.service-item span {
+.service-item > span {
   color: var(--accent);
   font-size: 10px;
 }
@@ -524,47 +432,9 @@ h2 em {
   font-size: 12px;
 }
 
-/* How It Works Subsection */
-
-.how-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  margin-top: 80px;
-  padding-top: 60px;
-  border-top: 1px solid var(--line);
-}
-
-.steps {
-  display: grid;
-}
-
-.step {
-  display: grid;
-  grid-template-columns: 45px 1fr;
-  gap: 15px;
-  padding: 20px 0;
-  border-top: 1px solid var(--line);
-}
-
-.step span {
-  color: var(--accent);
-  font-size: 11px;
-}
-
-.step h4 {
-  margin: 0 0 4px;
-  font-size: 17px;
-}
-
-.step p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-}
 
 /* ==========================================================================
-   10. THINKING / ARTICLES SECTION
+   10. THINKING
    ========================================================================== */
 
 .thinking-head {
@@ -572,28 +442,28 @@ h2 em {
   grid-template-columns: 1.2fr 1fr;
   gap: 80px;
   align-items: end;
-  margin: 30px 0 55px;
+  margin: 0 0 55px;
 }
 
 .thinking-head p {
-  color: var(--muted);
   max-width: 430px;
+  color: var(--muted);
 }
 
-.article-grid {
+.articles-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: var(--line);
   margin-top: 55px;
+  background: var(--line);
 }
 
 .article-card {
-  background: var(--bg);
-  padding: 28px;
   min-height: 290px;
   display: flex;
   flex-direction: column;
+  padding: 28px;
+  background: var(--bg);
   transition: background 0.25s, transform 0.25s;
 }
 
@@ -603,31 +473,32 @@ h2 em {
 }
 
 .article-no {
-  font-size: 10px;
   color: var(--accent);
+  font-size: 10px;
 }
 
 .article-card h3 {
+  margin: 55px 0 10px;
   font: 600 21px/1.12 "Space Grotesk";
   letter-spacing: -0.035em;
-  margin: 55px 0 10px;
 }
 
 .article-card p {
+  margin: 0;
   color: var(--muted);
   font-size: 13px;
-  margin: 0;
 }
 
 .article-card .read {
   margin-top: auto;
   padding-top: 25px;
-  font-size: 11px;
   color: #bfc1c7;
+  font-size: 11px;
 }
 
+
 /* ==========================================================================
-   11. CONTACT SECTION
+   11. CONTACT
    ========================================================================== */
 
 .contact {
@@ -642,9 +513,9 @@ h2 em {
 }
 
 .contact h2 {
+  margin: 25px 0;
   font: 600 clamp(42px, 6vw, 75px)/0.95 "Space Grotesk";
   letter-spacing: -0.06em;
-  margin: 25px 0;
 }
 
 .contact h2 em {
@@ -663,9 +534,9 @@ h2 em {
 
 .contact-form label {
   display: block;
+  margin-bottom: 18px;
   font-size: 11px;
   font-weight: 700;
-  margin-bottom: 18px;
 }
 
 .form-row {
@@ -679,13 +550,13 @@ h2 em {
   display: block;
   width: 100%;
   margin-top: 7px;
-  border: 1px solid rgba(16, 18, 11, 0.25);
-  background: rgba(255, 255, 255, 0.18);
   padding: 13px;
-  font: 14px "DM Sans";
-  color: #10120b;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(16, 18, 11, 0.25);
   border-radius: 3px;
   outline: none;
+  color: #10120b;
+  font: 14px "DM Sans";
 }
 
 .contact-form textarea {
@@ -700,9 +571,10 @@ h2 em {
 }
 
 .form-note {
-  font-size: 11px !important;
   margin-top: 12px !important;
+  font-size: 11px !important;
 }
+
 
 /* ==========================================================================
    12. FOOTER
@@ -724,9 +596,15 @@ footer .brand {
   font-size: 16px;
 }
 
+
 /* ==========================================================================
    13. ARTICLE DETAIL PAGES
    ========================================================================== */
+
+/*
+   These styles are not used by index.html, but are retained for
+   the individual article pages linked from the Thinking section.
+*/
 
 .article {
   max-width: 820px;
@@ -735,27 +613,27 @@ footer .brand {
 }
 
 .article h1 {
+  margin: 28px 0;
   font: 600 clamp(45px, 7vw, 78px)/0.98 "Space Grotesk", sans-serif;
   letter-spacing: -0.06em;
-  margin: 28px 0;
 }
 
 .deck {
-  font-size: 20px;
-  color: #b9bbc1;
   max-width: 690px;
   margin-bottom: 65px;
+  color: #b9bbc1;
+  font-size: 20px;
 }
 
 .article h2 {
+  margin: 55px 0 15px;
   font: 600 28px/1.15 "Space Grotesk", sans-serif;
   letter-spacing: -0.04em;
-  margin: 55px 0 15px;
 }
 
 .article p {
-  font-size: 16px;
   color: #c0c2c8;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -768,11 +646,13 @@ footer .brand {
   font-style: normal;
 }
 
+
 /* ==========================================================================
-   14. MEDIA QUERIES
+   14. RESPONSIVE
    ========================================================================== */
 
 @media (max-width: 800px) {
+
   .nav nav {
     display: none;
   }
@@ -787,28 +667,22 @@ footer .brand {
     right: -20%;
   }
 
-  .statement,
+  .questions-head,
   .audience,
-  .how-content,
-  .blind-head,
   .services-intro,
   .thinking-head {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
-  .services .service-grid,
-  .blind-grid,
-  .article-grid {
+  .questions-grid,
+  .articles-grid,
+  .services-grid {
     grid-template-columns: 1fr;
   }
 
   .outcomes-grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .service-list-grid {
-    grid-template-columns: 1fr;
   }
 
   .about-grid {
@@ -826,12 +700,6 @@ footer .brand {
   footer {
     flex-direction: column;
     gap: 12px;
-  }
-
-  /* Article navigation on mobile */
-  .article-nav .brand-logo {
-    height: 32px;
-    width: auto;
   }
 
   .article {
